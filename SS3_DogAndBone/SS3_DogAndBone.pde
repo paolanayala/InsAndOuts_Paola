@@ -3,7 +3,7 @@
 // reach his favorite treat!
 
 
-PImage bone;
+PImage bone; 
 PImage puppy;
 PImage pawprint;
 float fall = 1;
