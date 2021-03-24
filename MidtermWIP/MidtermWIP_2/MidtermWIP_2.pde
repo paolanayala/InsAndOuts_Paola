@@ -1,6 +1,9 @@
 import processing.sound.*;
-SoundFile ding;
+SoundFile bell;
 
+PImage redball;
+float fade = 2;
+float fall = 1;
 String gameState;
 int PaddleL = 350;
 int PaddleR = 250;
@@ -25,7 +28,8 @@ void setup() {
   size(600,600);
   gameState = "START";
   font = loadFont("Optima-Bold-48.vlw");
-  ding = new SoundFile(this,"ding.mp3");
+  redball = loadImage("redball.png");
+  //bell = new SoundFile(this,"bell.wav");
 }
 
 
@@ -63,6 +67,7 @@ void playGame() {
   textFont(font);
   stroke(5);
   line(300, 0, 300, 600);
+  
   
   fill(0);
   //text("Score", 252, 35);
@@ -123,14 +128,12 @@ if (ballX >= 585) {
   
   
 if (ballX >= 585) {
-  ding.play();
   scoreP1++;
   ballX = width / 2;
   ballY = height / 2;
 }
 
 if (ballX <= 15) {
-  ding.play();
   scoreP2++;
   ballX = width / 4;
   ballY = height /2 + height / 4;
@@ -158,12 +161,10 @@ if ((scoreP1 == 10) || (scoreP2 == 10)) {
       }
     }  
   } else if (mousePressed == true && ballX > width/2) {
-     //for(int x = 0; x <= width/2; x+= 20) {
-     // for(int y = 0; y <= height; y+=40) {
-      fill(colorP2);
-    // noStroke();
-     rect(x+300, 50, y+50, 350);
+     image(redball, width/2, fall
       }
+    }
+  }
 }
 
 void winGame() {
